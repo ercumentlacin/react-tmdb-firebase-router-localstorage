@@ -1,8 +1,10 @@
-# react-tmdb-firebase-router-localstorage
+# React TMDB Firebase Router Localstorage
 
-## TODOS
+## Roadmap
+
 ### Stage I
-- [ ] React ormanının kurulması
+
+- [x] React ortamının kurulması
 - [ ] Bootstrap ve React routerdom'un projeye dahil edilmesi
 - [ ] Context Api oluşturulması (tema ve search burada olacak)
 - [ ] Dark ve Light tema eklenmesi
@@ -16,24 +18,25 @@
 - [ ] Arama sonucu url'de gösterilsin (localhistory)
 
 ### Stage II
+
 - [ ] Bootstrap yerine Material UI kullanılması
 - [ ] Next js kullanımı.
 
-
 ### Stage III
+
 - [ ] Site iki dilli olacak (react multilanguage)
 - [ ] Ana sayfa açılınca browser diline göre türkçe/ingilizce yönlendir
 
 ### Stage IV
-- [ ] Kullanıcının bütün gezdiği yerleri sağda panelde "history" başlığı altında listelensin, tıklatınca açılsın. Gezilen her yer orada gösterilsain, yaptığın aralar da orada bulusun. (useLocation) 
 
+- [ ] Kullanıcının bütün gezdiği yerleri sağda panelde "history" başlığı altında listelensin, tıklatınca açılsın. Gezilen her yer orada gösterilsain, yaptığın aralar da orada bulusun. (useLocation)
 
 ### Stage V
+
 - [ ] Siteye yeni film eklenince kullanıcıa bildirim gitsin. (push notification onesignal)
 - [ ] Blog eklsnsin bilgiler Firebase üzerinden çekilsin
 
-
-
 ### Stage VI
+
 - [ ] Unit Test
 - [ ] Yapılanların mediumda kaleme alınması.
