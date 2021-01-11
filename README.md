@@ -5,7 +5,7 @@
 ### Stage I
 
 - [x] React ortamının kurulması
-- [ ] Bootstrap ve React routerdom'un projeye dahil edilmesi
+- [x] Bootstrap ve React routerdom'un projeye dahil edilmesi
 - [ ] Context Api oluşturulması (tema ve search burada olacak)
 - [ ] Dark ve Light tema eklenmesi
 - [ ] Filmlerin TMDB sitesinden çekilmesi
