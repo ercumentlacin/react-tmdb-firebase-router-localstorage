@@ -1,7 +1,19 @@
 # React TMDB Firebase Router LocalStorage
 
+## Description
+This project is non-commercial. This project will be the result of being able to achieve some things.
+**Features**
+- React
+- React Router Dom
+- Context Api
+- Hooks
+- Firebase
+  - Authentication
+  - Add / Remove Favorite Movie
+- LocalStorage
+  - Add / Remove Favorite Movie
+- Theme Switch
 ## Roadmap
-
 ### Stage I
 
 - [x] React ortamının kurulması
