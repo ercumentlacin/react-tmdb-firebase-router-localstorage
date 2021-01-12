@@ -17,8 +17,8 @@ This project is non-commercial. This project will be the result of being able to
 ### Stage I
 
 - [x] React ortamının kurulması
-- [x] Bootstrap ve React routerdom'un projeye dahil edilmesi
-- [ ] Context Api oluşturulması (tema ve search burada olacak)
+- [x] Bootstrap ve react-router-dom'un projeye dahil edilmesi
+- [ ] Context Api oluşturulması (tema ve search burada yer bulacak)
 - [ ] Dark ve Light tema eklenmesi
 - [ ] Filmlerin TMDB sitesinden çekilmesi
 - [ ] Fimler için arama kısmı oluşturulması
