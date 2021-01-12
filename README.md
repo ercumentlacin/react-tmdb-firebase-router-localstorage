@@ -1,4 +1,4 @@
-# React TMDB Firebase Router Localstorage
+# React TMDB Firebase Router LocalStorage
 
 ## Roadmap
 
