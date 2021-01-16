@@ -11,7 +11,7 @@ const Navbar = () => {
             {/* brand */}
             <div className="container-brandt">
               <a className="navbar-brand" href="#">
-                SPEEDYTV.COM
+                <span className="text-warning">SPEEDYTV</span>.COM
               </a>
             </div>
             {/* search and button */}
