@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Context from "../Context/Context";
 import Card from "./Card/Card";
-import PopularMovies from "./Card/PopularMovies/PopularMovies";
+import PopularMovies from "./PopularMovies/PopularMovies";
 import Header from "./Header/Header";
 import SectionHero from "./SectionHero/SectionHero";
 
