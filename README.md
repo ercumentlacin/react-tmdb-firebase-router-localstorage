@@ -4,7 +4,7 @@
 
 ### Stage I
 
-- [x] React ortamının kurulması
+- [x] React ortamının kurulması.
 - [x] Bootstrap ve React routerdom'un projeye dahil edilmesi
 - [x] Context Api oluşturulması (tema ve search burada olacak)
 - [x] Dark ve Light tema eklenmesi
