@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import Context from "../../Context/Context";
 
 export default function SectionHero() {
+  // theme changes area
+  const { theme } = useContext(Context);
+  const constrat = theme === "light" ? "dark" : "light";
   return (
     <div>
-      <div className="container">
+      <div className={`container bg-${theme} text-${constrat} `}>
         <div className="row">
           <div className="col-md-6">
             <h1>

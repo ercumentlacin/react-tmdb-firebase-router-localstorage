@@ -8,7 +8,9 @@ const Navbar = () => {
   const { theme, toggleTheme } = useContext(Context);
   return (
     <div>
-      <nav className={`navbar navbar-expand-lg navbar-${theme} bg-${theme}`}>
+      <nav
+        className={`navbar navbar-expand-lg navbar-${theme} bg-${theme} py-4`}
+      >
         <div className="container-fluid">
           <div className="d-flex justify-content-between w-100 flex-wrap align-items-center align-content-center">
             {/* brand */}
