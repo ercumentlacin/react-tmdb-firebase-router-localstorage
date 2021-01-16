@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Context from "../Context/Context";
-import Card from "./Card";
+import Card from "./Card/Card";
 import Header from "./Header/Header";
 import SectionHero from "./SectionHero/SectionHero";
 
