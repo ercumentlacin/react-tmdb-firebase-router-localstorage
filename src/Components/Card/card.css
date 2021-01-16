@@ -1,0 +1,7 @@
+.row > * {
+  padding-bottom: calc(var(--bs-gutter-x) / 2);
+  padding-top: calc(var(--bs-gutter-x) / 2);
+}
+.card {
+  border: 0;
+}
