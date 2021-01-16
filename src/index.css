@@ -7,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #121620;
 }
 
 code {
@@ -22,4 +23,17 @@ h5,
 h6,
 .navbar-brand {
   font-family: "Bebas Neue", cursive;
+}
+
+.bg-dark {
+  background-color: #121620 !important;
+}
+
+/* Theme Switcher Button */
+.fixed-top {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  left: calc(100% - 42px);
+  z-index: 1030;
 }
