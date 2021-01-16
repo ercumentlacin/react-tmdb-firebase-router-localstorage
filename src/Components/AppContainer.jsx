@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Context from "../Context/Context";
 import Header from "./Header/Header";
+import SectionHero from "./SectionHero/SectionHero";
 
 const AppContainer = () => {
   const { theme } = useContext(Context);
@@ -19,8 +20,8 @@ const AppContainer = () => {
       <Router>
         <Header />
         <Switch>
-          <Route>
-            <h1>baslik deneme</h1>
+          <Route exact path="/">
+            <SectionHero />
           </Route>
         </Switch>
       </Router>
