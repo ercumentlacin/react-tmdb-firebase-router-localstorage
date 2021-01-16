@@ -1,11 +1,14 @@
 /* eslint-disable */
-import React from "react";
+import React, { useContext } from "react";
 import "./navbar.css";
 
+import Context from "../../Context/Context";
+
 const Navbar = () => {
+  const { theme, toggleTheme } = useContext(Context);
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className={`navbar navbar-expand-lg navbar-${theme} bg-${theme}`}>
         <div className="container-fluid">
           <div className="d-flex justify-content-between w-100 flex-wrap align-items-center align-content-center">
             {/* brand */}
