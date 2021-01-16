@@ -4,6 +4,7 @@ import React, { useContext } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Context from "../Context/Context";
+import Card from "./Card";
 import Header from "./Header/Header";
 import SectionHero from "./SectionHero/SectionHero";
 
@@ -22,6 +23,7 @@ const AppContainer = () => {
         <Switch>
           <Route exact path="/">
             <SectionHero />
+            <Card />
           </Route>
         </Switch>
       </Router>
