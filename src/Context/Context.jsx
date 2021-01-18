@@ -3,13 +3,15 @@ import React, { useState, createContext } from "react";
 const Context = createContext();
 
 export const Provider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
-  const [query, setQuery] = useState("");
+  const [theme, setTheme] = useState("light"); // for toggle theme
+  const [query, setQuery] = useState(""); // input value
   const handleForm = (e) => {
+    // form submit
     e.preventDefault();
     console.log(query);
   };
   const handleChange = (e) => {
+    // input change
     setQuery(e.target.value);
   };
   const form = (
