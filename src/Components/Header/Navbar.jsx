@@ -6,6 +6,7 @@ import Context from "../../Context/Context";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useContext(Context);
+  const { form } = useContext(Context);
   return (
     <div>
       <nav
@@ -20,17 +21,7 @@ const Navbar = () => {
               </a>
             </div>
             {/* search and button */}
-            <form className="d-flex login-register">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+            {form}
 
             {/* login & register */}
             <div className="d-flex">
