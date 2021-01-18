@@ -1,14 +1,15 @@
 import React, { useState, createContext } from "react";
+import { Link } from "react-router-dom";
 
 const Context = createContext();
 
 export const Provider = ({ children }) => {
   const [theme, setTheme] = useState("light"); // for toggle theme
   const [query, setQuery] = useState(""); // input value
+
   const handleForm = (e) => {
     // form submit
     e.preventDefault();
-    console.log(query);
   };
   const handleChange = (e) => {
     // input change
@@ -24,9 +25,13 @@ export const Provider = ({ children }) => {
         onChange={handleChange}
         value={query}
       />
-      <button className="btn btn-outline-success" type="submit">
+      <Link
+        to={`/search=${query}`}
+        className="btn btn-outline-success"
+        type="submit"
+      >
         Search
-      </button>
+      </Link>
     </form>
   );
 

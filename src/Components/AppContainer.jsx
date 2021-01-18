@@ -1,7 +1,12 @@
 /* eslint-disable no-unused-expressions */
 
 import React, { useContext } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+} from "react-router-dom";
 
 import Context from "../Context/Context";
 import Card from "./Card/Card";
@@ -11,8 +16,9 @@ import SectionHero from "./SectionHero/SectionHero";
 import SearchMovie from "./SearchMovie/SearchMovie";
 
 const AppContainer = () => {
+  let history = useHistory();
+  console.log(history, "deneme");
   const { theme, query } = useContext(Context);
-  console.log(query);
 
   const body = document.body;
   theme === "light"
@@ -33,6 +39,7 @@ const AppContainer = () => {
           ) : (
             <SearchMovie />
           )}
+          <Route path={`/search=${query}`} component={SearchMovie} />
         </Switch>
       </Router>
     </main>
