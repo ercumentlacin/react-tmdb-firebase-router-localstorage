@@ -37,6 +37,7 @@ export const Provider = ({ children }) => {
     theme,
     toggleTheme,
     form,
+    query,
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

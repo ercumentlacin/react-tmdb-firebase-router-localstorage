@@ -8,9 +8,11 @@ import Card from "./Card/Card";
 import PopularMovies from "./PopularMovies/PopularMovies";
 import Header from "./Header/Header";
 import SectionHero from "./SectionHero/SectionHero";
+import SearchMovie from "./SearchMovie/SearchMovie";
 
 const AppContainer = () => {
-  const { theme } = useContext(Context);
+  const { theme, query } = useContext(Context);
+  console.log(query);
 
   const body = document.body;
   theme === "light"
@@ -22,11 +24,15 @@ const AppContainer = () => {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/">
-            <SectionHero />
-            <PopularMovies />
-            <Card />
-          </Route>
+          {query.length < 3 ? (
+            <Route exact path="/">
+              <SectionHero />
+              <PopularMovies />
+              <Card />
+            </Route>
+          ) : (
+            <SearchMovie />
+          )}
         </Switch>
       </Router>
     </main>
