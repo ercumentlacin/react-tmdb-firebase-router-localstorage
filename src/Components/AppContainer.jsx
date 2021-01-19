@@ -1,12 +1,7 @@
 /* eslint-disable no-unused-expressions */
 
 import React, { useContext } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useHistory,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Context from "../Context/Context";
 import Card from "./Card/Card";
@@ -16,8 +11,6 @@ import SectionHero from "./SectionHero/SectionHero";
 import SearchMovie from "./SearchMovie/SearchMovie";
 
 const AppContainer = () => {
-  let history = useHistory();
-  console.log(history, "deneme");
   const { theme, query } = useContext(Context);
 
   const body = document.body;
@@ -30,16 +23,16 @@ const AppContainer = () => {
       <Router>
         <Header />
         <Switch>
-          {query.length < 3 ? (
-            <Route exact path="/">
-              <SectionHero />
-              <PopularMovies />
-              <Card />
-            </Route>
-          ) : (
-            <SearchMovie />
-          )}
-          <Route path={`/search=${query}`} component={SearchMovie} />
+          <Route exact path="/">
+            <SectionHero />
+            <PopularMovies />
+            <Card />
+          </Route>
+
+          {console.log(query, "query var mı")}
+          <Route path={`/search/:searchedMovie`}>
+            <SearchMovie query={query} />
+          </Route>
         </Switch>
       </Router>
     </main>

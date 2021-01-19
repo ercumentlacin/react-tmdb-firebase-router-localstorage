@@ -1,5 +1,6 @@
 import React, { useState, createContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
+import SearchMovie from "../Components/SearchMovie/SearchMovie";
 
 const Context = createContext();
 
@@ -10,6 +11,7 @@ export const Provider = ({ children }) => {
   const handleForm = (e) => {
     // form submit
     e.preventDefault();
+    console.log("noluyor", query);
   };
   const handleChange = (e) => {
     // input change
@@ -24,9 +26,10 @@ export const Provider = ({ children }) => {
         aria-label="Search"
         onChange={handleChange}
         value={query}
+        onSubmit={handleForm}
       />
       <Link
-        to={`/search=${query}`}
+        to={`/search/${query}`}
         className="btn btn-outline-success"
         type="submit"
       >
