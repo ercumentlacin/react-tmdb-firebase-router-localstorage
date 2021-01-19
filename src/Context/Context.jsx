@@ -29,7 +29,14 @@ export const Provider = ({ children }) => {
         onSubmit={handleForm}
       />
       <Link
-        to={`/search/${query}`}
+        to={
+          query
+            ? `/search/${query}`
+            : `/search/${window.location.pathname.substring(
+                8,
+                window.location.pathname.length
+              )}`
+        }
         className="btn btn-outline-success"
         type="submit"
       >

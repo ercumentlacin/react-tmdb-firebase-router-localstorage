@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import "./navbar.css";
 
 import Context from "../../Context/Context";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useContext(Context);
@@ -16,9 +17,9 @@ const Navbar = () => {
           <div className="d-flex justify-content-between w-100 flex-wrap align-items-center align-content-center">
             {/* brand */}
             <div className="container-brandt">
-              <a className="navbar-brand" href="#">
+              <Link className="navbar-brand" to="/">
                 <span className="text-warning">SPEEDYTV</span>.COM
-              </a>
+              </Link>
             </div>
             {/* search and button */}
             {form}
