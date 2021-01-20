@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const SignUp = () => {
+const SignUp = ({ theme, constrat }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
@@ -23,45 +23,39 @@ const SignUp = () => {
     }
   };
   return (
-    <div className="mt-8">
-      <h1 className="text-3xl mb-2 text-center font-bold">Sign Up</h1>
-      <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
+    <div className={`container text-center mt-5 bg-${theme} text-${constrat}`}>
+      <h1 className="mb-2 text-center">Sign Up</h1>
+      <div className="border mx-auto rounded py-5 px-4">
         {error !== null && (
-          <div className="py-4 bg-red-600 w-full text-white text-center mb-3">
+          <div className="py-4 bg-danger w-100 text-white text-center mb-3">
             {error}
           </div>
         )}
-        <form className="">
-          <label htmlFor="displayName" className="block">
-            Display Name:
-          </label>
+        <form className="d-flex flex-column">
+          <label htmlFor="displayName"></label>
           <input
             type="text"
-            className="my-1 p-1 w-full "
+            className="my-2 p-1 w-full "
             name="displayName"
             value={displayName}
-            placeholder="E.g: Faruq"
+            placeholder="Your name.."
             id="displayName"
             onChange={(event) => onChangeHandler(event)}
           />
-          <label htmlFor="userEmail" className="block">
-            Email:
-          </label>
+          <label htmlFor="userEmail"></label>
           <input
             type="email"
-            className="my-1 p-1 w-full"
+            className="my-2 p-1 w-full"
             name="userEmail"
             value={email}
-            placeholder="E.g: faruq123@gmail.com"
+            placeholder="Your Email"
             id="userEmail"
             onChange={(event) => onChangeHandler(event)}
           />
-          <label htmlFor="userPassword" className="block">
-            Password:
-          </label>
+          <label htmlFor="userPassword"></label>
           <input
             type="password"
-            className="mt-1 mb-3 p-1 w-full"
+            className="my-2 mb-3 p-1 w-full"
             name="userPassword"
             value={password}
             placeholder="Your Password"
@@ -69,7 +63,7 @@ const SignUp = () => {
             onChange={(event) => onChangeHandler(event)}
           />
           <button
-            className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
+            className="btn btn-success w-100 py-2"
             onClick={(event) => {
               createUserWithEmailAndPasswordHandler(event, email, password);
             }}
@@ -78,12 +72,12 @@ const SignUp = () => {
           </button>
         </form>
         <p className="text-center my-3">or</p>
-        <button className="bg-red-500 hover:bg-red-600 w-full py-2 text-white">
+        <button className="btn btn-danger w-100 py-2">
           Sign In with Google
         </button>
         <p className="text-center my-3">
           Already have an account?{" "}
-          <Link to="/" className="text-blue-500 hover:text-blue-600">
+          <Link to="/signin" className="text-primary">
             Sign in here
           </Link>
         </p>

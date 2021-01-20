@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const PasswordReset = () => {
+const PasswordReset = ({ theme, constrat }) => {
   const [email, setEmail] = useState("");
   const [emailHasBeenSent, setEmailHasBeenSent] = useState(false);
   const [error, setError] = useState(null);
@@ -15,25 +15,21 @@ const PasswordReset = () => {
     event.preventDefault();
   };
   return (
-    <div className="mt-8">
-      <h1 className="text-xl text-center font-bold mb-3">
-        Reset your Password
-      </h1>
-      <div className="border border-blue-300 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
-        <form action="">
+    <div className={`container text-center mt-5 bg-${theme} text-${constrat}`}>
+      <h1 className="mb-2 text-center">Reset your Password</h1>
+      <div className="border mx-auto rounded py-5 px-4">
+        <form className="d-flex flex-column mb-3" action="">
           {emailHasBeenSent && (
-            <div className="py-3 bg-green-400 w-full text-white text-center mb-3">
+            <div className="py-3 bg-succes w-100 text-white text-center mb-3">
               An email has been sent to you!
             </div>
           )}
           {error !== null && (
-            <div className="py-3 bg-red-600 w-full text-white text-center mb-3">
+            <div className="py-3 bg-danger  w-100 text-white text-center mb-3">
               {error}
             </div>
           )}
-          <label htmlFor="userEmail" className="w-full block">
-            Email:
-          </label>
+          <label htmlFor="userEmail"></label>
           <input
             type="email"
             name="userEmail"
@@ -43,14 +39,11 @@ const PasswordReset = () => {
             onChange={onChangeHandler}
             className="mb-3 w-full px-1 py-2"
           />
-          <button className="w-full bg-blue-400 text-white py-3">
+          <button className="w-100 btn btn-primary text-white py-3">
             Send me a reset link
           </button>
         </form>
-        <Link
-          to="/"
-          className="my-2 text-blue-700 hover:text-blue-800 text-center block"
-        >
+        <Link to="/signin" className="my-2 text-primary text-center ">
           &larr; back to sign in page
         </Link>
       </div>
