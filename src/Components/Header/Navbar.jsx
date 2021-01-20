@@ -28,14 +28,14 @@ const Navbar = () => {
             <div className="d-flex">
               <ul className="navbar-nav mb-2 mb-lg-0 d-flex flex-row">
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <Link className="nav-link" to="/signin">
                     Login
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item ms-2">
-                  <a className="nav-link" href="#">
+                  <Link className="nav-link" to="/signup">
                     Register
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

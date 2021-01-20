@@ -6,12 +6,12 @@ const Context = createContext();
 
 export const Provider = ({ children }) => {
   const [theme, setTheme] = useState("light"); // for toggle theme
+  const constrat = theme === "light" ? "dark" : "light";
   const [query, setQuery] = useState(""); // input value
 
   const handleForm = (e) => {
     // form submit
     e.preventDefault();
-    console.log("noluyor", query);
   };
   const handleChange = (e) => {
     // input change
@@ -50,6 +50,7 @@ export const Provider = ({ children }) => {
   };
   const value = {
     theme,
+    constrat,
     toggleTheme,
     form,
     query,

@@ -1,20 +1,29 @@
-import React from "react";
-import { Router } from "@reach/router";
-import SignIn from "./SignIn";
+import React, { useContext } from "react";
+import { Route } from "react-router-dom";
+import Context from "../../Context/Context";
+import SignIn from "../Application/SignIn ";
 import SignUp from "./SignUp";
 import ProfilePage from "./ProfilePage";
 import PasswordReset from "./PasswordReset";
 
 const Application = () => {
+  const { theme, toggleTheme, constrat } = useContext(Context);
   const user = null;
   return user ? (
     <ProfilePage />
   ) : (
-    <Router>
-      <SignUp path="signUp" />
-      <SignIn path="/" />
-      <PasswordReset path="passwordReset" />
-    </Router>
+    <>
+      <Route theme={theme} constrat={constrat} path="/signup">
+        <SignUp theme={theme} constrat={constrat} />
+      </Route>
+      <Route path="/signin">
+        <SignIn theme={theme} constrat={constrat} />
+      </Route>
+
+      <Route path="/passwordreset">
+        <PasswordReset theme={theme} constrat={constrat} />
+      </Route>
+    </>
   );
 };
 

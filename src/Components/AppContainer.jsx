@@ -9,6 +9,7 @@ import PopularMovies from "./PopularMovies/PopularMovies";
 import Header from "./Header/Header";
 import SectionHero from "./SectionHero/SectionHero";
 import SearchMovie from "./SearchMovie/SearchMovie";
+import Application from "./Application/Application";
 
 const AppContainer = () => {
   const { theme, query } = useContext(Context);
@@ -22,12 +23,14 @@ const AppContainer = () => {
     <main className={`bg-${theme}`}>
       <Router>
         <Header />
+
         <Switch>
           <Route exact path="/">
             <SectionHero />
             <PopularMovies />
             <Card />
           </Route>
+          <Application />
 
           {console.log(query, "query var mı")}
           <Route path={`/search/:searchedMovie`}>
