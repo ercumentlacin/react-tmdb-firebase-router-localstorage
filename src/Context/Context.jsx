@@ -1,6 +1,7 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
+import { auth } from "../firebase";
 import { Link, Route } from "react-router-dom";
-import SearchMovie from "../Components/SearchMovie/SearchMovie";
+import { generateUserDocument } from "../firebase";
 
 const Context = createContext();
 
@@ -8,6 +9,14 @@ export const Provider = ({ children }) => {
   const [theme, setTheme] = useState("light"); // for toggle theme
   const constrat = theme === "light" ? "dark" : "light";
   const [query, setQuery] = useState(""); // input value
+  const [user, setUser] = useState(null); // user
+
+  useEffect(async () => {
+    auth.onAuthStateChanged(async (userAuth) => {
+      const user = await generateUserDocument(userAuth);
+      setUser(user);
+    });
+  }, []);
 
   const handleForm = (e) => {
     // form submit
@@ -54,6 +63,7 @@ export const Provider = ({ children }) => {
     toggleTheme,
     form,
     query,
+    user,
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

@@ -1,19 +1,37 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { auth, generateUserDocument, signInWithGoogle } from "../../firebase";
 
 const SignUp = ({ theme, constrat }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [error, setError] = useState(null);
-  const createUserWithEmailAndPasswordHandler = (event, email, password) => {
+
+  const createUserWithEmailAndPasswordHandler = async (
+    event,
+    email,
+    password
+  ) => {
     event.preventDefault();
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+      generateUserDocument(user, { displayName });
+    } catch (error) {
+      setError("Error Signing up with email and password");
+    }
+
     setEmail("");
     setPassword("");
     setDisplayName("");
   };
+
   const onChangeHandler = (event) => {
     const { name, value } = event.currentTarget;
+
     if (name === "userEmail") {
       setEmail(value);
     } else if (name === "userPassword") {
@@ -22,6 +40,7 @@ const SignUp = ({ theme, constrat }) => {
       setDisplayName(value);
     }
   };
+
   return (
     <div className={`container text-center mt-5 bg-${theme} text-${constrat}`}>
       <h1 className="mb-2 text-center">Sign Up</h1>
@@ -72,7 +91,16 @@ const SignUp = ({ theme, constrat }) => {
           </button>
         </form>
         <p className="text-center my-3">or</p>
-        <button className="btn btn-danger w-100 py-2">
+        <button
+          onClick={() => {
+            try {
+              signInWithGoogle();
+            } catch (error) {
+              console.error("Error signing in with Google", error);
+            }
+          }}
+          className="btn btn-danger w-100 py-2"
+        >
           Sign In with Google
         </button>
         <p className="text-center my-3">

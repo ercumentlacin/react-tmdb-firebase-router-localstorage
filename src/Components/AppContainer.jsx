@@ -10,9 +10,12 @@ import Header from "./Header/Header";
 import SectionHero from "./SectionHero/SectionHero";
 import SearchMovie from "./SearchMovie/SearchMovie";
 import Application from "./Application/Application";
+import SignUp from "./Application/SignUp";
+import SignIn from "./Application/SignIn ";
+import PasswordReset from "./Application/PasswordReset";
 
 const AppContainer = () => {
-  const { theme, query } = useContext(Context);
+  const { theme, query, constrat, user } = useContext(Context);
 
   const body = document.body;
   theme === "light"
@@ -23,18 +26,29 @@ const AppContainer = () => {
     <main className={`bg-${theme}`}>
       <Router>
         <Header />
-
         <Switch>
           <Route exact path="/">
             <SectionHero />
             <PopularMovies />
             <Card />
           </Route>
-          <Application />
+
+          <Route path="/profile" component={Application} />
 
           {console.log(query, "query var mı")}
           <Route path={`/search/:searchedMovie`}>
             <SearchMovie query={query} />
+          </Route>
+
+          <Route path="/signup">
+            <SignUp theme={theme} constrat={constrat} />
+          </Route>
+          <Route path="/signin">
+            <SignIn theme={theme} constrat={constrat} />
+          </Route>
+
+          <Route path="/passwordreset">
+            <PasswordReset theme={theme} constrat={constrat} />
           </Route>
         </Switch>
       </Router>

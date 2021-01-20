@@ -7,22 +7,12 @@ import ProfilePage from "./ProfilePage";
 import PasswordReset from "./PasswordReset";
 
 const Application = () => {
-  const { theme, toggleTheme, constrat } = useContext(Context);
-  const user = null;
+  const { theme, toggleTheme, constrat, user } = useContext(Context);
   return user ? (
     <ProfilePage />
   ) : (
     <>
-      <Route theme={theme} constrat={constrat} path="/signup">
-        <SignUp theme={theme} constrat={constrat} />
-      </Route>
-      <Route path="/signin">
-        <SignIn theme={theme} constrat={constrat} />
-      </Route>
-
-      <Route path="/passwordreset">
-        <PasswordReset theme={theme} constrat={constrat} />
-      </Route>
+      <SignUp theme={theme} constrat={constrat} />
     </>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { auth, generateUserDocument, signInWithGoogle } from "../../firebase";
 
 const SignIn = ({ theme, constrat }) => {
   const [email, setEmail] = useState("");
@@ -7,6 +8,15 @@ const SignIn = ({ theme, constrat }) => {
   const [error, setError] = useState(null);
   const signInWithEmailAndPasswordHandler = (event, email, password) => {
     event.preventDefault();
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        window.location.href = "localhost:3000/deneme";
+      })
+      .catch((error) => {
+        setError("Error signing in with password and email!");
+        console.error("Error signing in with password and email", error);
+      });
   };
 
   const onChangeHandler = (event) => {
@@ -18,6 +28,7 @@ const SignIn = ({ theme, constrat }) => {
       setPassword(value);
     }
   };
+
   return (
     <div className={`container text-center mt-5 bg-${theme} text-${constrat}`}>
       <h1 className="mb-2 text-center">Sign In</h1>
@@ -62,7 +73,12 @@ const SignIn = ({ theme, constrat }) => {
           </div>
         </form>
         <p className="text-center my-3">or</p>
-        <button className="btn btn-danger w-100 py-2">
+        <button
+          onClick={() => {
+            signInWithGoogle();
+          }}
+          className="btn btn-danger w-100 py-2"
+        >
           Sign in with Google
         </button>
         <p className="text-center my-3">
