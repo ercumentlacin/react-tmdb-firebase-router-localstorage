@@ -24,7 +24,7 @@ const Navbar = () => {
             {/* search and button */}
             {form}
 
-            {/* login & register */}
+            {/* login & register or Profile */}
             {!user ? (
               <div className="d-flex">
                 <ul className="navbar-nav mb-2 mb-lg-0 d-flex flex-row">
