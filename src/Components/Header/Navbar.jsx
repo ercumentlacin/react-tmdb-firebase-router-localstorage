@@ -6,7 +6,7 @@ import Context from "../../Context/Context";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const { theme, toggleTheme } = useContext(Context);
+  const { theme, toggleTheme, user } = useContext(Context);
   const { form } = useContext(Context);
   return (
     <div>
@@ -25,20 +25,26 @@ const Navbar = () => {
             {form}
 
             {/* login & register */}
-            <div className="d-flex">
-              <ul className="navbar-nav mb-2 mb-lg-0 d-flex flex-row">
-                <li className="nav-item">
-                  <Link className="nav-link" to="/signin">
-                    Login
-                  </Link>
-                </li>
-                <li className="nav-item ms-2">
-                  <Link className="nav-link" to="/signup">
-                    Register
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            {!user ? (
+              <div className="d-flex">
+                <ul className="navbar-nav mb-2 mb-lg-0 d-flex flex-row">
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/signin">
+                      Login
+                    </Link>
+                  </li>
+                  <li className="nav-item ms-2">
+                    <Link className="nav-link" to="/signup">
+                      Register
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link className="nav-link" to="/profile">
+                Profile
+              </Link>
+            )}
 
             {/* toggle */}
             <button

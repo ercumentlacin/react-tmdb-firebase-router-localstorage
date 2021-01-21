@@ -22,6 +22,7 @@ export const Provider = ({ children }) => {
     // form submit
     e.preventDefault();
   };
+
   const handleChange = (e) => {
     // input change
     setQuery(e.target.value);
