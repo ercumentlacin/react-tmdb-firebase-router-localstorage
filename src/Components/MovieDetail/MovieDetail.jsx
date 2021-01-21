@@ -41,7 +41,6 @@ const MovieDetail = (props) => {
   // for creators
   let Arr = [];
   let uniqueArray;
-
   credit &&
     credit.crew
       .filter((item) => item.known_for_department === "Directing")
