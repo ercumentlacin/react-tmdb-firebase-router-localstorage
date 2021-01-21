@@ -81,6 +81,7 @@ const MovieDetail = (props) => {
         className={`container text-center mt-5 bg-transparent text-${constrat}`}
       >
         <div className="row">
+          <h1 className="title">{title}</h1>
           <div className="col-sm-4 offset-sm-8">
             <div className="d-flex flex-column">
               {/* vote */}
@@ -94,10 +95,14 @@ const MovieDetail = (props) => {
               {/* overview */}
               <p className="text-start movie__overview mt-2">{overview}</p>
               <p className="mt-4 text-start labores">
-                Creators: <strong>{uniqueArray.join(", ")}</strong>
+                Creators:{" "}
+                <strong>{uniqueArray.join(", ") || "unavaible"}</strong>
               </p>
               <p className="text-start labores">
-                Creators: <strong>{uniqueStars.slice(0, 5).join(", ")}</strong>
+                Stars:{" "}
+                <strong>
+                  {uniqueStars.slice(0, 5).join(", ") || "unavaible"}
+                </strong>
               </p>
             </div>
           </div>

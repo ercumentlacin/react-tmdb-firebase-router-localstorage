@@ -24,3 +24,19 @@ span.point {
 .labores > strong {
   font-weight: 600;
 }
+.container > .row {
+  position: relative;
+}
+.title {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0 0 5px black;
+  max-width: 600px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
