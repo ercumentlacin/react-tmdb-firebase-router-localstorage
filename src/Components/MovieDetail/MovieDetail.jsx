@@ -8,16 +8,17 @@ const MovieDetail = (props) => {
   const { theme, toggleTheme, user } = useContext(Context);
   const constrat = theme === "light" ? "dark" : "light";
   const [popular, setPopular] = useState("");
+  const [credit, setCredit] = useState("");
 
   let { movie_detail } = useParams();
   const movie_id = window.location.pathname.substring(
     7,
     window.location.pathname.length
   );
-  console.log(props, "props", movie_id);
 
   useEffect(() => {
     const URL = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`;
+    const URL_CREDITS = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${process.env.REACT_APP_API_KEY}`;
     axios
       .get(URL)
       .then((response) => {
@@ -26,8 +27,46 @@ const MovieDetail = (props) => {
       .catch(function (error) {
         console.log(error);
       });
+    //   FOR GET CREDITS
+    axios
+      .get(URL_CREDITS)
+      .then((response) => {
+        setCredit(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }, []);
   const { id, backdrop_path, title, vote_average, overview } = popular;
+  // for creators
+  let Arr = [];
+  let uniqueArray;
+
+  credit &&
+    credit.crew
+      .filter((item) => item.known_for_department === "Directing")
+      .map((item) => {
+        Arr.push(Object.entries(item)[4][1]);
+      });
+
+  uniqueArray = Arr.filter(function (item, pos) {
+    return Arr.indexOf(item) == pos;
+  });
+
+  // for stars
+  let stars = [];
+  let uniqueStars;
+
+  credit &&
+    credit.cast
+      .filter((item) => item.known_for_department === "Acting")
+      .map((item) => {
+        stars.push(Object.entries(item)[4][1]);
+      });
+  uniqueStars = stars.filter(function (item, pos) {
+    return stars.indexOf(item) == pos;
+  });
+
   return (
     <div
       style={{
@@ -55,6 +94,12 @@ const MovieDetail = (props) => {
               </p>
               {/* overview */}
               <p className="text-start movie__overview mt-2">{overview}</p>
+              <p className="mt-4 text-start labores">
+                Creators: <strong>{uniqueArray.join(", ")}</strong>
+              </p>
+              <p className="text-start labores">
+                Creators: <strong>{uniqueStars.slice(0, 5).join(", ")}</strong>
+              </p>
             </div>
           </div>
         </div>
