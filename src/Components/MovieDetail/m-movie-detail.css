@@ -1,0 +1,19 @@
+.movie__detail {
+  background-size: cover;
+}
+.row > .col-sm-4.offset-sm-8 {
+  background: rgb(31 31 31 / 80%);
+  color: white;
+}
+.vote_average {
+  font-weight: 900;
+  font-size: 3rem;
+}
+span.point {
+  font-size: 0.9rem;
+}
+
+.movie__overview {
+  color: #b5b8a0;
+  line-height: 1.2;
+}

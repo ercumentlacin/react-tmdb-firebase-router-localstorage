@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import "./card.css";
 
 export default function Card({ popularmovie }) {
@@ -6,7 +7,12 @@ export default function Card({ popularmovie }) {
     <>
       {popularmovie && popularmovie.poster_path && (
         <div className="col-sm-6 col-md-4 col-lg-3">
-          <div className="card">
+          <div
+            onClick={(e) =>
+              (window.location.pathname = `/movie/${popularmovie.id}`)
+            }
+            className="card"
+          >
             <img
               src={`http://image.tmdb.org/t/p/w185${popularmovie.poster_path}`}
               className="card-img-top"

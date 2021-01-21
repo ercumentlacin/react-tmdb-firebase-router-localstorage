@@ -13,6 +13,7 @@ import Application from "./Application/Application";
 import SignUp from "./Application/SignUp";
 import SignIn from "./Application/SignIn ";
 import PasswordReset from "./Application/PasswordReset";
+import MovieDetail from "./MovieDetail/MovieDetail";
 
 const AppContainer = () => {
   const { theme, query, constrat, user } = useContext(Context);
@@ -49,6 +50,10 @@ const AppContainer = () => {
 
           <Route path="/passwordreset">
             <PasswordReset theme={theme} constrat={constrat} />
+          </Route>
+
+          <Route path="/movie/:movie_detail">
+            <MovieDetail theme={theme} constrat={constrat} />
           </Route>
         </Switch>
       </Router>
