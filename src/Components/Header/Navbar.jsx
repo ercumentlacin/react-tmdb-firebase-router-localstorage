@@ -23,41 +23,42 @@ const Navbar = () => {
             </div>
             {/* search and button */}
             {form}
+            <div className="d-flex">
+              {/* login & register or Profile */}
+              {!user ? (
+                <div className="d-flex">
+                  <ul className="navbar-nav mb-2 mb-lg-0 d-flex flex-row">
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/signin">
+                        Login
+                      </Link>
+                    </li>
+                    <li className="nav-item ms-2">
+                      <Link className="nav-link" to="/signup">
+                        Register
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <Link className="nav-link" to="/profile">
+                  Profile
+                </Link>
+              )}
 
-            {/* login & register or Profile */}
-            {!user ? (
-              <div className="d-flex">
-                <ul className="navbar-nav mb-2 mb-lg-0 d-flex flex-row">
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/signin">
-                      Login
-                    </Link>
-                  </li>
-                  <li className="nav-item ms-2">
-                    <Link className="nav-link" to="/signup">
-                      Register
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            ) : (
-              <Link className="nav-link" to="/profile">
-                Profile
-              </Link>
-            )}
-
-            {/* toggle */}
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
+              {/* toggle */}
+              <button
+                className="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
+            </div>
             {/* toggle menu ıtems */}
             <div
               className="collapse navbar-collapse"
