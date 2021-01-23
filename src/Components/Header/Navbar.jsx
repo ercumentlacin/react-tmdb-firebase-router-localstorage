@@ -9,7 +9,7 @@ const Navbar = () => {
   const { theme, toggleTheme, user } = useContext(Context);
   const { form } = useContext(Context);
   return (
-    <div>
+    <>
       <nav
         className={`navbar navbar-expand-lg navbar-${theme} bg-${theme} py-4`}
       >
@@ -85,7 +85,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 };
 
