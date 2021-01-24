@@ -37,7 +37,18 @@ const MovieDetail = (props) => {
         console.log(error);
       });
   }, []);
-  const { id, backdrop_path, title, vote_average, overview } = popular;
+
+  console.log(popular);
+  const {
+    id,
+    backdrop_path,
+    title,
+    vote_average,
+    overview,
+    vote_count,
+    popularity,
+  } = popular;
+
   // for creators
   let Arr = [];
   let uniqueArray;
@@ -82,8 +93,8 @@ const MovieDetail = (props) => {
       >
         <div className="row">
           <h1 className="title">{title}</h1>
-          <div className="col-sm-4 offset-sm-8">
-            <div className="d-flex flex-column">
+          <div className="col-sm-4 offset-sm-8 px-0">
+            <div className="d-flex flex-column px-3">
               {/* vote */}
               <p className="vote_average d-flex align-items-center mb-0">
                 {vote_average}
@@ -104,6 +115,23 @@ const MovieDetail = (props) => {
                   {uniqueStars.slice(0, 5).join(", ") || "unavaible"}
                 </strong>
               </p>
+            </div>
+            {/* buy and statistic */}
+            <div className="buy-container d-flex flex-column p-3">
+              <div className="btn btn-warning buy-btn me-auto">
+                {" "}
+                <i className="fas fa-plus"></i> Buy
+              </div>
+              <div className="statistic d-flex justify-content-start my-3">
+                <div className="review d-flex flex-column me-3 text-start">
+                  <strong>Vote Vount</strong>
+                  <span>{vote_count}</span>
+                </div>
+                <div className="popularity d-flex flex-column text-start">
+                  <strong>Popularity</strong>
+                  <span>{popularity}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

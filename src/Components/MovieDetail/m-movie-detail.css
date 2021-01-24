@@ -40,3 +40,28 @@ span.point {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.buy-container {
+  background: rgb(31 31 31 / 80%);
+}
+.buy-btn {
+  background-color: #ffdb57 !important;
+  width: 170px;
+  font-weight: 600;
+  color: #322f21;
+  transition: all 250ms ease-in-out;
+}
+.buy-btn i {
+  background: #e4bf3d;
+  padding: 5px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.buy-btn:hover {
+  background-color: #e4bf3d !important;
+}
+.statistic > .d-flex {
+  font-size: 0.9rem;
+}
+.statistic > .d-flex > strong {
+  font-weight: 600;
+}
